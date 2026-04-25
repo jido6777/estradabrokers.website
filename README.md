@@ -77,3 +77,9 @@ Properties are managed through `assets/data/properties.json`. Each entry follows
 
 Developed by **[Jido](https://jido6777.github.io/website/)** — Web Developer.  
 All property content and branding belong to EstradaBrokers.
+
+---
+
+<p align="center">
+  jido6777 · 2026
+</p>
