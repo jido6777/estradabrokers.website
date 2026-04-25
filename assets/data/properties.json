@@ -37,5 +37,17 @@
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80",
       "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=800&q=80"
     ]
-  } 
+  },
+  {
+  "title": "hola demonio",
+  "price": 666000000,
+  "type": "Comprar",
+  "description": "Casa en el infierno",
+  "location": "https://www.google.com/maps/place/El+Infierno,+San+Calixto,+North+Santander/@8.5299791,-73.114105,1513m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8e6740bbe4d81c51:0x175f446db35dbb6f!8m2!3d8.52938!4d-73.10446!16s%2Fg%2F1hhxfj5sy!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D",
+  "media": [
+    "assets/media/images/img1.jpg",
+    "assets/media/images/img2.jpg",
+    "assets/media/images/img3.jpg"
+  ]
+}
 ]
