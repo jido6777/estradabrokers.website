@@ -1,41 +1,21 @@
-[
-  {
-    "type": "compra",
-    "price": 350000000,
-    "title": "Casa en venta",
-    "location": "Medellín, Colombia",
-    "description": "Moderna casa de 2 pisos en conjunto cerrado, zona exclusiva.",
-    "whatsapp": "573042465513",
-    "media": [
-      "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=800&q=80"
-    ]
-  },
-  {
-    "type": "lote",
-    "price": 90000000,
-    "title": "Lote disponible",
-    "location": "Cali, Colombia",
-    "description": "Lote plano de 200m² en zona de alta valorización.",
-    "whatsapp": "573042465513",
-    "media": [
-      "assets/media/images/imagen-lote.jpg",
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
-    ]
-  },
 {
-    "type": "arriendo",
-    "price": 1200000,
-    "title": "Casa en arriendo",
-    "location": "Bogotá, Colombia",
-    "description": "Hermosa casa con 3 habitaciones, 2 baños y garaje.",
-    "whatsapp": "573042465513",
-    "media": [
-      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=800&q=80"
-    ]
-  }
-]
+  "type": "arriendo",
+  "price": 0,
+  "title": "Apartaestudio amoblado — North Point Studios 2",
+  "location": "North Point Studios 2, Bogotá, Colombia",
+  "neighborhood": "North Point Studios 2",
+  "city": "Bogotá",
+  "rooms": 1,
+  "baths": 1,
+  "area": null,
+  "parking": null,
+  "stratum": null,
+  "floor": null,
+  "description": "Exclusivo apartaestudio moderno industrial amoblado. Cocina integral con barra americana, gimnasio privado con ring de boxeo, pisos en baldosa/mármol y cemento. Amplias terrazas con vistas panorámicas, zonas lounge, comedor exterior, asador y espacios verdes.",
+  "whatsapp": "573042465513",
+  "media": [
+    "assets/media/images/northpoint-foto1.jpg",
+    "assets/media/images/northpoint-foto2.jpg",
+    "assets/media/images/northpoint-foto3.jpg"
+  ]
+}
