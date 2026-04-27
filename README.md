@@ -6,12 +6,6 @@
 
 ---
 
-![Hero](assets/media/images/preview-hero.png)
-
-![Properties](assets/media/images/preview-properties.png)
-
----
-
 ## About
 
 Landing page built for **EstradaBrokers**, a Colombian real estate agency. The site allows visitors to browse available properties, filter by type, contact the agency directly via WhatsApp, and view each property's location on Google Maps — all from a single clean page.
