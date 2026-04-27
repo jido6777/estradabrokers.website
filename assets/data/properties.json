@@ -1,21 +1,23 @@
-{
-  "type": "arriendo",
-  "price": 0,
-  "title": "Apartaestudio amoblado — North Point Studios 2",
-  "location": "North Point Studios 2, Bogotá, Colombia",
-  "neighborhood": "North Point Studios 2",
-  "city": "Bogotá",
-  "rooms": 1,
-  "baths": 1,
-  "area": null,
-  "parking": null,
-  "stratum": null,
-  "floor": null,
-  "description": "Exclusivo apartaestudio moderno industrial amoblado. Cocina integral con barra americana, gimnasio privado con ring de boxeo, pisos en baldosa/mármol y cemento. Amplias terrazas con vistas panorámicas, zonas lounge, comedor exterior, asador y espacios verdes.",
-  "whatsapp": "573042465513",
-  "media": [
-    "assets/media/images/northpoint-foto1.jpg",
-    "assets/media/images/northpoint-foto2.jpg",
-    "assets/media/images/northpoint-foto3.jpg"
-  ]
-}
+[
+  {
+    "type": "arriendo",
+    "price": 0,
+    "title": "Apartaestudio amoblado — North Point Studios 2",
+    "location": "North Point Studios 2, Bogotá, Colombia",
+    "neighborhood": "North Point Studios 2",
+    "city": "Bogotá",
+    "rooms": 1,
+    "baths": 1,
+    "area": null,
+    "parking": null,
+    "stratum": null,
+    "floor": null,
+    "description": "Exclusivo apartaestudio moderno industrial amoblado. Cocina integral con barra americana, gimnasio privado con ring de boxeo, pisos en baldosa/mármol y cemento. Amplias terrazas con vistas panorámicas, zonas lounge, comedor exterior, asador y espacios verdes.",
+    "whatsapp": "573042465513",
+    "media": [
+      "assets/media/images/northpoint/foto1.jpg",
+      "assets/media/images/northpoint/foto2.jpg",
+      "assets/media/images/northpoint/foto3.jpg"
+    ]
+  }
+]
