@@ -2,7 +2,7 @@
 
 > // Freelance project developed for EstradaBrokers, a real estate agency based in Colombia.
 
-**Live site → [jido6777.github.io/estradabrokers.website]([http://estradabrokerssas.com/])**
+**Live site → [estradabrokerssas.com](https://estradabrokerssas.com)**
 
 ---
 
