@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNiAzNiI+CiAgPHJlY3Qgd2lkdGg9IjM2IiBoZWlnaHQ9IjM2IiByeD0iOCIgZmlsbD0iIzM4YmRmOCIvPgogIDx0ZXh0IHg9IjE4IiB5PSIyNiIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsICdUaW1lcyBOZXcgUm9tYW4nLCBzZXJpZiIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkU8L3RleHQ+Cjwvc3ZnPgo=">
+<title>EstradaBrokers SAS — Inmobiliaria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ─── RESET & VARS ─────────────────────────────── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+:root {
+  --bg:       #0f172a;
+  --surface:  #1e293b;
+  --dark:     #020617;
+  --text:     #e2e8f0;
+  --muted:    #94a3b8;
+  --border:   #334155;
+  --accent:   #38bdf8;
+  --accent2:  #38bdf8;
+  --green:    #16a34a;
+  --yellow:   #d97706;
+  --purple:   #7c3aed;
+  --shadow:   0 2px 16px rgba(0,0,0,0.4);
+  --shadow-lg:0 8px 40px rgba(0,0,0,0.6);
+  --radius:   12px;
+  --radius-sm:8px;
+}
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* ─── HEADER / NAVBAR ──────────────────────────── */
+.header {
+  position: sticky; top: 0; z-index: 900;
+  background: rgba(30,41,59,0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.35);
+  transition: background 0.3s ease;
+}
+.header-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 24px;
+  display: flex; align-items: center; gap: 20px;
+  height: 64px;
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; flex-shrink: 0;
+}
+.logo-mark {
+  width: 36px; height: 36px;
+  background: var(--accent);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; color: white; font-weight: 700;
+  line-height: 1;
+}
+.logo-text {
+  display: flex; flex-direction: column; line-height: 1.1;
+}
+.logo-text strong {
+  font-size: 15px; font-weight: 900; color: #e2e8f0;
+  letter-spacing: -0.3px;
+}
+.logo-text small {
+  font-size: 9px; font-weight: 700; color: var(--accent);
+  letter-spacing: 2px; text-transform: uppercase;
+}
+
+/* Search bar in header */
+.header-search {
+  flex: 1; max-width: 480px;
+  display: flex; align-items: center;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  padding: 0 16px; gap: 8px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.header-search:focus-within {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 3px rgba(29,78,216,0.1);
+}
+.header-search i { color: var(--muted); font-size: 14px; }
+.header-search input {
+  border: none; background: none; outline: none;
+  font-family: inherit; font-size: 14px; color: var(--text);
+  width: 100%; padding: 10px 0;
+}
+.header-search input::placeholder { color: var(--muted); }
+
+.header-nav {
+  display: flex; align-items: center; gap: 4px; margin-left: auto;
+}
+.nav-link {
+  padding: 8px 14px; border-radius: 8px;
+  font-size: 13px; font-weight: 700; color: var(--muted);
+  text-decoration: none; white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover { background: #1e293b; color: var(--text); }
+.nav-cta {
+  padding: 9px 18px; border-radius: 8px;
+  background: var(--accent); color: white;
+  font-size: 13px; font-weight: 800;
+  text-decoration: none; white-space: nowrap;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ─── HERO ─────────────────────────────────────── */
+.hero {
+  position: relative;
+  height: 620px;
+  display: flex; flex-direction: column;
+  justify-content: flex-end; align-items: center;
+  overflow: hidden;
+  padding: 0;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('assets/media/images/hero.webp') center 20% / cover no-repeat;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 20, 40, 0.15) 0%,
+    rgba(10, 20, 40, 0.30) 38%,
+    rgba(15, 23, 42, 0.90) 65%,
+    #0f172a 100%
+  );
+}
+.hero-content {
+  position: relative; z-index: 2;
+  text-align: center; padding: 0 20px 52px;
+  max-width: 760px; width: 100%;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(56,189,248,0.15);
+  border: 1px solid rgba(56,189,248,0.4);
+  color: #7dd3fc;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px;
+  margin-bottom: 20px;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow i { font-size: 10px; }
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 4vw, 46px);
+  color: white; line-height: 1.15;
+  margin-bottom: 14px;
+}
+.hero-title span { color: var(--accent); }
+.hero-sub {
+  font-size: 16px; color: rgba(255,255,255,0.65);
+  margin-bottom: 36px; font-weight: 400; font-size: 14px;
+}
+
+/* Pill filters in hero */
+.hero-filters {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 20px;
+}
+.pill {
+  padding: 9px 22px; border-radius: 24px;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; border: 2px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.8);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.pill:focus { outline: none; }
+.pill:hover, .pill.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(56,189,248,0.4);
+}
+.pill.active-green { background: var(--green); border-color: var(--green); color: white; }
+
+/* Hero search box */
+.hero-search-box {
+  display: flex; align-items: center; gap: 0;
+  background: #1e293b;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  max-width: 580px; width: 100%; margin: 0 auto;
+}
+.hero-search-box input {
+  flex: 1; border: none; outline: none;
+  font-family: inherit; font-size: 14px;
+  padding: 16px 20px; color: #e2e8f0; background: #1e293b;
+}
+.hero-search-box button {
+  background: var(--accent); border: none;
+  padding: 0 24px; height: 52px;
+  color: white; font-size: 15px; font-weight: 800;
+  cursor: pointer; font-family: inherit;
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.hero-search-box button:hover { opacity: 0.9; }
+
+/* Price filter row */
+.hero-price-row {
+  display: flex; align-items: center; gap: 10px;
+  justify-content: center; margin-top: 16px;
+  flex-wrap: wrap;
+}
+.price-filter-wrap {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px; padding: 8px 14px;
+  color: white; font-size: 13px; font-weight: 600;
+}
+.price-filter-wrap input {
+  background: none; border: none; outline: none;
+  color: white; font-size: 13px; font-weight: 700;
+  width: 120px; font-family: inherit;
+}
+.price-filter-wrap input::placeholder { color: rgba(255,255,255,0.5); }
+
+/* ─── ENTRY ANIMATIONS ─────────────────────────── */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.header          { animation: fadeInDown 0.55s cubic-bezier(.4,0,.2,1) both; }
+.hero-eyebrow    { animation: fadeInUp 0.6s 0.15s cubic-bezier(.4,0,.2,1) both; }
+.hero-title      { animation: fadeInUp 0.65s 0.28s cubic-bezier(.4,0,.2,1) both; }
+.hero-sub        { animation: fadeInUp 0.65s 0.42s cubic-bezier(.4,0,.2,1) both; }
+.hero-filters    { animation: fadeInUp 0.65s 0.55s cubic-bezier(.4,0,.2,1) both; }
+.hero-price-row  { animation: fadeInUp 0.65s 0.65s cubic-bezier(.4,0,.2,1) both; }
+.hero-search-box { animation: fadeIn    0.7s 0.55s cubic-bezier(.4,0,.2,1) both; }
+.stats-bar {
+  background: #0f172a;
+  padding: 16px 24px;
+}
+.stats-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: center; gap: 40px;
+  flex-wrap: wrap;
+}
+.stat {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,0.7);
+  font-size: 13px;
+}
+.stat strong {
+  color: white; font-size: 17px; font-weight: 800;
+}
+
+/* ─── MAIN LAYOUT ──────────────────────────────── */
+.main {
+  max-width: 1280px; margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+.section-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px; flex-wrap: wrap; gap: 12px;
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px; font-weight: 700; color: #e2e8f0;
+}
+.section-count {
+  font-size: 13px; color: var(--muted); margin-top: 2px;
+}
+
+/* ─── PROPERTY GRID ────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+/* ─── CARD ─────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  opacity: 0; transform: translateY(24px);
+}
+.card.show {
+  opacity: 1; transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.28s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Slider */
+.slider { position: relative; height: 230px; overflow: hidden; }
+.slides { display: flex; transition: transform 0.42s cubic-bezier(.4,0,.2,1); }
+.slide { min-width: 100%; overflow: hidden; }
+.slide img, .slide video {
+  width: 100%; height: 230px; object-fit: cover;
+  transition: transform 0.5s ease; cursor: pointer; display: block;
+}
+.card:hover .slide img { transform: scale(1.04); }
+
+/* Arrows */
+.arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(30,41,59,0.92);
+  border: none; width: 30px; height: 30px;
+  border-radius: 50%; cursor: pointer; z-index: 6;
+  font-size: 13px; color: #e2e8f0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+.slider:hover .arrow { opacity: 1; }
+.arrow:hover { transform: translateY(-50%) scale(1.1); }
+.arrow-left { left: 10px; }
+.arrow-right { right: 10px; }
+
+/* Dots */
+.dots {
+  position: absolute; bottom: 42px; width: 100%;
+  text-align: center; z-index: 5;
+}
+.dot {
+  width: 6px; height: 6px; margin: 0 3px;
+  background: rgba(255,255,255,0.5); border-radius: 50%;
+  display: inline-block; cursor: pointer;
+  transition: all 0.25s; border: 1.5px solid rgba(255,255,255,0.4);
+}
+.dot.active { background: white; transform: scale(1.35); border-color: white; }
+
+/* Overlay badges on image */
+.img-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 48px 12px 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.62) 0%, transparent 100%);
+  z-index: 4; pointer-events: none;
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.type-badge {
+  font-size: 10px; font-weight: 800;
+  padding: 3px 10px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.8px;
+  pointer-events: none;
+}
+.badge-arriendo { background: #1d4ed8; color: white; }
+.badge-compra   { background: #16a34a; color: white; }
+.badge-lote     { background: #d97706; color: white; }
+.badge-arrendado{ background: #6b7280; color: white; }
+.badge-vendido  { background: #7c3aed; color: white; }
+
+.photo-count-badge {
+  display: flex; align-items: center; gap: 4px;
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+  color: white; font-size: 11px; font-weight: 600;
+  padding: 4px 9px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.photo-count-badge i { font-size: 10px; }
+
+/* Unavailable stamp */
+.card.unavailable .slide img { filter: grayscale(30%); }
+.unavailable-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 7; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.unavailable-stamp {
+  border: 3px solid currentColor;
+  border-radius: 8px; padding: 6px 18px;
+  font-size: 20px; font-weight: 900;
+  letter-spacing: 3px; text-transform: uppercase;
+  transform: rotate(-12deg);
+  opacity: 0.9; pointer-events: none;
+}
+.stamp-arrendado { color: #f87171; }
+.stamp-vendido   { color: #c084fc; }
+
+/* Video thumb */
+.video-thumb-slide {
+  height: 230px;
+  background: linear-gradient(135deg, #0f2744, #1e3a5f);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.video-thumb-box {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  transition: transform 0.3s;
+}
+.video-thumb-slide:hover .video-thumb-box { transform: scale(1.08); }
+.video-thumb-icon { font-size: 44px; color: white; }
+.video-thumb-label { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600; }
+
+/* Card body */
+.card-body { padding: 14px 16px 16px; }
+
+.card-price-row {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 6px;
+}
+.card-price {
+  font-size: 20px; font-weight: 900; color: var(--accent);
+  line-height: 1.1; letter-spacing: -0.5px;
+}
+.card-price-label {
+  font-size: 11px; color: var(--muted); font-weight: 600;
+  margin-top: 2px;
+}
+.card-admin {
+  font-size: 11px; color: var(--muted); text-align: right;
+}
+.card-title {
+  font-size: 14px; font-weight: 700; color: #e2e8f0;
+  line-height: 1.35; margin-bottom: 5px;
+  display: -webkit-box; -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-location {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; color: var(--muted);
+  margin-bottom: 10px;
+}
+.card-location i { color: var(--accent); font-size: 11px; }
+
+/* Chips / features */
+.card-chips {
+  display: flex; gap: 6px; flex-wrap: wrap;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.chip {
+  display: flex; align-items: center; gap: 4px;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  background: #0f172a; border-radius: 6px;
+  padding: 5px 9px; border: 1px solid var(--border);
+  cursor: default; user-select: none;
+}
+.chip i { color: #38bdf8; font-size: 11px; }
+
+/* Description */
+.card-desc {
+  font-size: 12px; color: var(--muted); line-height: 1.65;
+  max-height: 54px; overflow: hidden;
+  transition: max-height 0.4s ease;
+  margin-bottom: 4px;
+}
+.card-desc.expanded { max-height: 600px; }
+.ver-mas {
+  background: none; border: none;
+  color: #38bdf8; font-size: 11px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+  margin-bottom: 12px; display: block;
+  transition: opacity 0.2s;
+}
+.ver-mas:hover { opacity: 0.75; }
+
+/* Action buttons */
+.card-actions {
+  display: flex; gap: 8px;
+}
+.btn-action {
+  flex: 1; padding: 10px 0;
+  border-radius: var(--radius-sm); border: none;
+  font-family: inherit; font-size: 12px; font-weight: 800;
+  cursor: pointer; text-decoration: none; text-align: center;
+  display: flex; align-items: center; justify-content: center;
+  gap: 5px; transition: all 0.2s;
+}
+.btn-wa {
+  background: #25d366; color: white;
+}
+.btn-wa:hover {
+  background: #1fad55;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37,211,102,0.35);
+}
+.btn-loc {
+  background: #334155; color: #e2e8f0;
+  border: 1.5px solid var(--border);
+}
+.btn-loc:hover {
+  background: #475569;
+  transform: translateY(-2px);
+}
+.btn-unavailable {
+  flex: 1; background: #334155; color: var(--muted);
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  font-size: 12px; font-weight: 700; padding: 10px;
+  text-align: center;
+}
+
+/* State messages */
+.state-msg {
+  grid-column: 1/-1; text-align: center;
+  padding: 80px 20px; color: var(--muted); font-size: 15px;
+}
+.state-msg i {
+  display: block; font-size: 44px; margin-bottom: 14px;
+  color: var(--accent);
+}
+
+
+/* ─── PUBLISH SECTION ──────────────────────────── */
+.publish-section {
+  padding: 72px 24px;
+  background: linear-gradient(160deg, #0f172a 0%, #0c1e38 60%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+.publish-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.publish-inner {
+  max-width: 860px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: center;
+}
+.publish-badge {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(56,189,248,0.12);
+  border: 1px solid rgba(56,189,248,0.35);
+  color: #7dd3fc; font-size: 11px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
+  padding: 5px 13px; border-radius: 20px;
+  margin-bottom: 18px;
+}
+.publish-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  color: white; line-height: 1.2;
+  margin-bottom: 14px;
+}
+.publish-title span { color: var(--accent); }
+.publish-desc {
+  font-size: 14px; color: rgba(255,255,255,0.55);
+  line-height: 1.75; margin-bottom: 28px;
+}
+.publish-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--accent); color: #0f172a;
+  font-size: 15px; font-weight: 900;
+  padding: 15px 30px; border-radius: 12px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 28px rgba(56,189,248,0.35);
+}
+.publish-cta:hover {
+  opacity: 0.92; transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(56,189,248,0.45);
+}
+.publish-features {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.publish-feat {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 16px 18px;
+  transition: background 0.2s, border-color 0.2s;
+}
+.publish-feat:hover {
+  background: rgba(56,189,248,0.07);
+  border-color: rgba(56,189,248,0.2);
+}
+.publish-feat-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(56,189,248,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; color: var(--accent); flex-shrink: 0;
+}
+.publish-feat-text strong {
+  display: block; font-size: 13px; font-weight: 800;
+  color: var(--text); margin-bottom: 3px;
+}
+.publish-feat-text span {
+  font-size: 12px; color: var(--muted); line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .publish-inner { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ─── CONTACT FOOTER ───────────────────────────── */
+.contact-section {
+  background: #020617; padding: 56px 24px;
+}
+.contact-inner {
+  max-width: 900px; margin: 0 auto; text-align: center;
+}
+.contact-label {
+  font-size: 11px; font-weight: 800; letter-spacing: 3px;
+  color: var(--accent); text-transform: uppercase; margin-bottom: 10px;
+}
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px; color: white; margin-bottom: 10px;
+}
+.contact-subtitle {
+  font-size: 15px; color: rgba(255,255,255,0.55);
+  margin-bottom: 36px;
+}
+.contact-grid {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+  margin-bottom: 40px;
+}
+.contact-btn {
+  display: flex; align-items: center; gap: 9px;
+  padding: 12px 22px; border-radius: 12px;
+  text-decoration: none; font-size: 14px; font-weight: 700;
+  color: white; background: rgba(255,255,255,0.08);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  transition: all 0.22s;
+}
+.contact-btn:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  transform: translateY(-3px);
+}
+.contact-btn.wa  { background: rgba(37,211,102,0.2); border-color: rgba(37,211,102,0.4); }
+.contact-btn.ig  { background: rgba(228,64,95,0.2);  border-color: rgba(228,64,95,0.4);  }
+.contact-btn.fb  { background: rgba(59,89,152,0.2);  border-color: rgba(59,89,152,0.4);  }
+.contact-btn.tt  { background: rgba(0,0,0,0.3);       border-color: rgba(255,255,255,0.2);}
+.contact-btn.yt  { background: rgba(255,0,0,0.2);     border-color: rgba(255,0,0,0.4);    }
+.contact-btn i   { font-size: 18px; }
+.footer-copy {
+  color: rgba(255,255,255,0.25);
+  font-size: 12px; border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 28px;
+}
+
+/* ─── VIEWER (lightbox) ────────────────────────── */
+.viewer {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.97);
+  display: none; flex-direction: column;
+  justify-content: center; align-items: center;
+  z-index: 9999;
+}
+.viewer.active { display: flex; }
+.viewer-topbar {
+  position: absolute; top: 0; left: 0; right: 0;
+  padding: 14px 20px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+  z-index: 10001; pointer-events: none;
+}
+.viewer-counter { color: rgba(255,255,255,0.7); font-size: 13px; font-weight: 700; }
+.viewer-close {
+  background: none; border: none; color: white;
+  font-size: 26px; cursor: pointer;
+  opacity: 0.8; transition: opacity 0.2s, transform 0.2s;
+  pointer-events: all;
+}
+.viewer-close:hover { opacity: 1; transform: scale(1.15); }
+.viewer-media-wrap {
+  position: relative; display: flex;
+  align-items: center; justify-content: center;
+  width: 100%; height: 100%;
+  overflow: hidden; touch-action: none;
+}
+#viewerImg {
+  max-width: 92vw; max-height: 88vh;
+  object-fit: contain; cursor: grab;
+  transform-origin: center; user-select: none;
+  display: block; border-radius: 4px;
+}
+#viewerImg:active { cursor: grabbing; }
+#viewerVideo {
+  max-width: 90vw; max-height: 85vh;
+  border-radius: 10px; outline: none; display: none; background: #000;
+}
+.video-controls {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  display: none; align-items: center; gap: 14px;
+  background: rgba(0,0,0,0.65); padding: 10px 18px;
+  border-radius: 30px; backdrop-filter: blur(6px); z-index: 10002;
+}
+.video-controls button {
+  background: none; border: none; color: white;
+  font-size: 18px; cursor: pointer; transition: transform 0.2s, color 0.2s;
+}
+.video-controls button:hover { transform: scale(1.2); color: var(--accent); }
+.video-progress {
+  width: 160px; height: 4px; appearance: none;
+  background: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer;
+}
+.video-progress::-webkit-slider-thumb {
+  appearance: none; width: 14px; height: 14px;
+  border-radius: 50%; background: var(--accent); cursor: pointer;
+}
+.video-time { font-size: 12px; color: rgba(255,255,255,0.8); white-space: nowrap; }
+.viewer-hint { display: none !important; }
+
+/* Viewer nav arrows */
+.viewer-nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.12);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  color: white; border-radius: 50%;
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; cursor: pointer; z-index: 10003;
+  transition: background 0.2s, transform 0.2s, opacity 0.2s;
+  opacity: 0.75;
+}
+.viewer-nav:hover { background: rgba(56,189,248,0.35); opacity: 1; transform: translateY(-50%) scale(1.08); }
+.viewer-nav-left  { left: 18px; }
+.viewer-nav-right { right: 18px; }
+.viewer-nav.hidden { display: none; }
+
+/* ─── RESPONSIVE ───────────────────────────────── */
+@media(max-width: 768px) {
+  .header-inner { gap: 12px; }
+  .header-search { display: none; }
+  .header-nav { display: none; }
+  .nav-cta { font-size: 12px; padding: 8px 14px; display: flex; }
+  .hero { height: 580px; padding: 0; justify-content: flex-end; }
+  .hero-search-box { flex-direction: column; border-radius: 12px; }
+  .hero-search-box input { width: 100%; }
+  .hero-search-box button { width: 100%; height: 48px; border-radius: 0; }
+  .stats-inner { gap: 20px; }
+  .main { padding: 20px 16px 48px; }
+  .grid { grid-template-columns: 1fr; gap: 16px; }
+  .contact-title { font-size: 24px; }
+}
+@media(max-width: 480px) {
+  .stats-bar { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─────────────────────────── -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">E</div>
+      <div class="logo-text">
+        <strong>EstradaBrokers</strong>
+        <small>SAS · Inmobiliaria</small>
+      </div>
+    </a>
+
+    <div class="header-search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Buscar por ciudad, barrio o tipo…" id="headerSearchInput">
+    </div>
+
+    <nav class="header-nav">
+      <a class="nav-link" href="#propiedades">Propiedades</a>
+      <a class="nav-link" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ─── HERO ───────────────────────────── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <i class="fas fa-map-marker-alt"></i>
+      Colombia · Bogotá y más ciudades
+    </div>
+    <h1 class="hero-title">
+      Encuentra tu <span>hogar ideal</span><br>con EstradaBrokers
+    </h1>
+    <p class="hero-sub">Tu equipo de confianza en bienes raíces</p>
+
+    <div class="hero-filters">
+      <button class="pill active" onclick="setType('all',this)">Todos</button>
+      <button class="pill" onclick="setType('arriendo',this)">Arriendo</button>
+      <button class="pill" onclick="setType('compra',this)">Venta</button>
+      <button class="pill" onclick="setType('lote',this)">Lotes</button>
+    </div>
+
+    <div class="hero-price-row">
+      <div class="price-filter-wrap">
+        <i class="fas fa-dollar-sign"></i>
+        <span>Hasta:</span>
+        <input type="text" id="maxPrice" placeholder="Sin límite">
+        <span>COP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS BAR ─────────────────────── -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat"><strong id="statTotal">—</strong> propiedades disponibles</div>
+    <div class="stat"><i class="fas fa-star" style="color:#fbbf24;margin-right:4px"></i> Agencia certificada</div>
+    <div class="stat"><i class="fab fa-whatsapp" style="color:#25d366;margin-right:4px"></i> Respuesta inmediata</div>
+    <div class="stat"><i class="fas fa-shield-alt" style="color:#60a5fa;margin-right:4px"></i> Transacciones seguras</div>
+  </div>
+</div>
+
+<!-- ─── LISTING SECTION ───────────────── -->
+<main class="main" id="propiedades">
+  <div class="section-header">
+    <div>
+      <h2 class="section-title">Propiedades destacadas</h2>
+      <p class="section-count" id="resultCount">Cargando…</p>
+    </div>
+  </div>
+  <div class="grid" id="properties">
+    <div class="state-msg">
+      <i class="fas fa-spinner fa-spin"></i>
+      Cargando propiedades…
+    </div>
+  </div>
+</main>
+
+
+<!-- ─── PUBLICAR PROPIEDAD ────────────── -->
+<section class="publish-section" id="publicar">
+  <div class="publish-inner">
+    <div>
+      <div class="publish-badge"><i class="fas fa-home"></i> Propietarios</div>
+      <h2 class="publish-title">¿Tienes una propiedad para <span>arrendar o vender</span>?</h2>
+      <p class="publish-desc">Publica con nosotros y llega a cientos de compradores e inquilinos potenciales. Te acompañamos en cada paso del proceso.</p>
+      <a class="publish-cta" href="TU_LINK_DE_GOOGLE_FORM_AQUÍ" target="_blank" rel="noopener">
+        <i class="fas fa-file-alt"></i> Publicar mi propiedad
+      </a>
+    </div>
+    <div class="publish-features">
+      <div class="publish-feat">
+        <div class="publish-feat-icon"><i class="fas fa-bolt"></i></div>
+        <div class="publish-feat-text">
+          <strong>Publicación rápida</strong>
+          <span>Tu propiedad en línea en menos de 24 horas tras recibir la información.</span>
+        </div>
+      </div>
+      <div class="publish-feat">
+        <div class="publish-feat-icon"><i class="fas fa-users"></i></div>
+        <div class="publish-feat-text">
+          <strong>Gran alcance</strong>
+          <span>Llegamos a compradores e inquilinos en Bogotá y otras ciudades de Colombia.</span>
+        </div>
+      </div>
+      <div class="publish-feat">
+        <div class="publish-feat-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="publish-feat-text">
+          <strong>Asesoría personalizada</strong>
+          <span>Un agente te acompaña y responde todas tus preguntas sin costo adicional.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ───────────────────────── -->
+<section class="contact-section" id="contacto">
+  <div class="contact-inner">
+    <p class="contact-label">Contáctenos</p>
+    <h2 class="contact-title">Hablemos de tu próxima inversión</h2>
+    <p class="contact-subtitle">Nuestro equipo está listo para asesorarte sin costo alguno</p>
+
+    <div class="contact-grid">
+      <a class="contact-btn" href="mailto:info@estradabrokerssas.com">
+        <i class="fas fa-envelope"></i> Correo electrónico
+      </a>
+      <a class="contact-btn wa" href="https://wa.me/573042465513" target="_blank">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a class="contact-btn ig" href="https://www.instagram.com/estrada.brokers/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+      <a class="contact-btn fb" href="https://www.facebook.com/profile.php?id=61550848655087" target="_blank">
+        <i class="fab fa-facebook"></i> Facebook
+      </a>
+      <a class="contact-btn tt" href="https://www.tiktok.com/@estradabrokers" target="_blank">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+      <a class="contact-btn yt" href="https://www.youtube.com/@Estradabrokers" target="_blank">
+        <i class="fab fa-youtube"></i> YouTube
+      </a>
+    </div>
+    <p class="footer-copy">© 2026 EstradaBrokers SAS · Todos los derechos reservados · Bogotá, Colombia</p>
+  </div>
+</section>
+
+<!-- ─── LIGHTBOX VIEWER ───────────────── -->
+<div class="viewer" id="viewer">
+  <div class="viewer-topbar">
+    <span class="viewer-counter" id="viewerCounter"></span>
+    <button class="viewer-close" id="viewerClose"><i class="fas fa-times"></i></button>
+  </div>
+  <button class="viewer-nav viewer-nav-left hidden" id="viewerPrev"><i class="fas fa-chevron-left"></i></button>
+  <div class="viewer-media-wrap" id="viewerMediaWrap">
+    <img id="viewerImg" src="" alt="">
+    <video id="viewerVideo" playsinline></video>
+    <div class="video-controls" id="videoControls">
+      <button id="vcPlayPause"><i class="fas fa-pause"></i></button>
+      <input type="range" class="video-progress" id="vcProgress" value="0" min="0" step="0.01">
+      <span class="video-time" id="vcTime">0:00</span>
+      <button id="vcMute"><i class="fas fa-volume-up"></i></button>
+      <button id="vcFullscreen"><i class="fas fa-expand"></i></button>
+    </div>
+  </div>
+  <button class="viewer-nav viewer-nav-right hidden" id="viewerNext"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<script>
+/* ═══ CONFIG ══════════════════════════════════════ */
+const JSON_URL = "assets/data/properties.json";
+
+/* ═══ STATE ═══════════════════════════════════════ */
+let allProperties = [];
+let currentType   = "all";
+
+/* ═══ LOAD JSON ═══════════════════════════════════ */
+async function loadProperties() {
+  try {
+    const res = await fetch(JSON_URL);
+    if (!res.ok) throw new Error("No se pudo cargar el JSON");
+    allProperties = await res.json();
+    render();
+  } catch (err) {
+    document.getElementById("properties").innerHTML =
+      `<div class="state-msg">
+        <i class="fas fa-exclamation-triangle" style="color:#ef4444"></i>
+        Error cargando propiedades.<br>
+        <small style="font-size:12px;">${err.message}</small>
+      </div>`;
+    document.getElementById("resultCount").textContent = "";
+  }
+}
+
+/* ═══ UTILS ═══════════════════════════════════════ */
+function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+function isVideo(url) { return /\.(mp4|webm|ogg|mov|m4v|avi|mkv)(\?.*)?$/i.test(url); }
+function fmtTime(s) { const m=Math.floor(s/60),sec=Math.floor(s%60).toString().padStart(2,"0"); return `${m}:${sec}`; }
+
+/* ═══ PRICE FILTER INPUT ══════════════════════════ */
+const priceInput = document.getElementById("maxPrice");
+priceInput.addEventListener("input", () => {
+  const v = priceInput.value.replace(/[^0-9]/g,"");
+  priceInput.value = v ? fmt(v) : "";
+  render();
+});
+
+/* ═══ HEADER SEARCH ═══════════════════════════════ */
+document.getElementById("headerSearchInput").addEventListener("input", render);
+
+/* ═══ TYPE FILTER ═════════════════════════════════ */
+function setType(type, btn) {
+  currentType = type;
+  document.querySelectorAll(".pill").forEach(p => p.classList.remove("active"));
+  btn.classList.add("active");
+  render();
+}
+
+/* ═══ RENDER ══════════════════════════════════════ */
+function render() {
+  const max    = parseInt(priceInput.value.replace(/,/g,"")) || Infinity;
+  const search = document.getElementById("headerSearchInput").value.toLowerCase();
+  const container = document.getElementById("properties");
+  container.innerHTML = "";
+
+  const filtered = allProperties.filter(p => {
+    const typeOk = currentType === "all" || p.type === currentType;
+    const priceOk = p.price <= max;
+    const searchOk = !search ||
+      (p.title||"").toLowerCase().includes(search) ||
+      (p.neighborhood||"").toLowerCase().includes(search) ||
+      (p.city||"").toLowerCase().includes(search) ||
+      (p.description||"").toLowerCase().includes(search);
+    return typeOk && priceOk && searchOk;
+  });
+
+  const available = filtered.filter(p => p.type !== "arrendado" && p.type !== "vendido");
+  document.getElementById("statTotal").textContent = available.length;
+  document.getElementById("resultCount").textContent =
+    `${filtered.length} propiedad${filtered.length !== 1 ? "es" : ""} encontrada${filtered.length !== 1 ? "s" : ""}`;
+
+  if (filtered.length === 0) {
+    container.innerHTML = `<div class="state-msg">
+      <i class="fas fa-search"></i>
+      No hay propiedades para este filtro.
+    </div>`;
+    return;
+  }
+
+  filtered.forEach((p, idx) => {
+    p._id = idx;
+    const isUnavailable = p.type === "arrendado" || p.type === "vendido";
+
+    /* mediaFull: 4K para el viewer; media: thumbs para las tarjetas */
+    const fullList = p.mediaFull || p.media;
+
+    const slides = p.media.map((m, mi) => {
+      if (isVideo(m)) {
+        return `<div class="slide video-thumb-slide" data-video="${m}">
+          <div class="video-thumb-box">
+            <i class="fas fa-play-circle video-thumb-icon"></i>
+            <span class="video-thumb-label">Ver video</span>
+          </div>
+        </div>`;
+      }
+      const eager = mi < 3;
+      const fullSrc = fullList[mi] || m;
+      return `<div class="slide">
+        <img class="media-img"
+          ${eager ? `src="${m}"` : `src="" data-src="${m}"`}
+          data-full="${fullSrc}"
+          alt="${p.title}" loading="${eager?"eager":"lazy"}">
+      </div>`;
+    }).join("");
+
+    const badgeClass = {arriendo:"badge-arriendo",compra:"badge-compra",lote:"badge-lote",arrendado:"badge-arrendado",vendido:"badge-vendido"}[p.type]||"badge-arriendo";
+    const badgeLabel = {arriendo:"Arriendo",compra:"En venta",lote:"Lote",arrendado:"Arrendado",vendido:"Vendido"}[p.type]||p.type;
+
+    const waMsg  = encodeURIComponent(`Hola, me interesa la propiedad: ${p.title} — $${fmt(p.price)} COP`);
+    const waLink = `https://wa.me/${p.whatsapp||"573042465513"}?text=${waMsg}`;
+    const mapsLink = p.location&&p.location.startsWith("http") ? p.location : `https://www.google.com/maps?q=${encodeURIComponent(p.location||"")}`;
+
+    const chips = [];
+    if (p.rooms)   chips.push(`<span class="chip"><i class="fas fa-bed"></i>${p.rooms} hab.</span>`);
+    if (p.baths)   chips.push(`<span class="chip"><i class="fas fa-bath"></i>${p.baths} baño${p.baths>1?"s":""}</span>`);
+    if (p.area)    chips.push(`<span class="chip"><i class="fas fa-ruler-combined"></i>${p.area} m²</span>`);
+    if (p.parking) chips.push(`<span class="chip"><i class="fas fa-car"></i>${p.parking} parq.</span>`);
+    if (p.stratum) chips.push(`<span class="chip"><i class="fas fa-layer-group"></i>Estrato ${p.stratum}</span>`);
+    if (p.floor)   chips.push(`<span class="chip"><i class="fas fa-building"></i>Piso ${p.floor}</span>`);
+
+    const location = p.neighborhood ? `${p.neighborhood}${p.city?", "+p.city:""}` : (p.city||p.location||"");
+    const priceLabel = p.type==="arriendo" ? "/mes" : "";
+
+    const stampHtml = isUnavailable
+      ? `<div class="unavailable-overlay"><div class="unavailable-stamp stamp-${p.type}">${badgeLabel}</div></div>` : "";
+
+    container.innerHTML += `
+      <div class="card${isUnavailable?" unavailable":""}">
+        <div class="slider">
+          <div class="slides">${slides}</div>
+          ${createDots(p.media.length)}
+          <button class="arrow arrow-left" onclick="moveSlide(this,-1)">&#10094;</button>
+          <button class="arrow arrow-right" onclick="moveSlide(this,1)">&#10095;</button>
+          <div class="img-overlay">
+            <span class="type-badge ${badgeClass}">${badgeLabel}</span>
+            ${p.media.length>1?`<div class="photo-count-badge"><i class="fas fa-camera"></i>${p.media.length}</div>`:""}
+          </div>
+          ${stampHtml}
+        </div>
+        <div class="card-body">
+          <div class="card-price-row">
+            <div>
+              <div class="card-price">$${fmt(p.price)}</div>
+              <div class="card-price-label">COP${priceLabel}</div>
+            </div>
+            ${p.admin?`<div class="card-admin"><div style="color:var(--muted);font-size:10px">Admon.</div><div style="font-weight:700;font-size:12px">$${fmt(p.admin)}</div></div>`:""}
+          </div>
+          <div class="card-title">${p.title}</div>
+          ${location?`<div class="card-location"><i class="fas fa-map-marker-alt"></i>${location}</div>`:""}
+          ${chips.length?`<div class="card-chips">${chips.join("")}</div>`:""}
+          ${p.description?`
+            <p class="card-desc" id="desc-${idx}">${p.description}</p>
+            <button class="ver-mas" onclick="toggleDesc('desc-${idx}',this)">Ver más <i class="fas fa-chevron-down" style="font-size:9px;margin-left:2px"></i></button>
+          `:""}
+          <div class="card-actions">
+            ${isUnavailable
+              ? `<div class="btn-unavailable"><i class="fas fa-ban"></i> No disponible</div>`
+              : `<a class="btn-action btn-loc" href="${mapsLink}" target="_blank"><i class="fas fa-map-marker-alt"></i> Ubicación</a>
+                 <a class="btn-action btn-wa"  href="${waLink}" target="_blank"><i class="fab fa-whatsapp"></i> Me interesa</a>`
+            }
+          </div>
+        </div>
+      </div>`;
+  });
+
+  setTimeout(() => {
+    bindMediaClicks();
+    bindSliderSwipe();
+    revealCards();
+  }, 80);
+}
+
+/* ═══ DOTS ════════════════════════════════════════ */
+function createDots(total) {
+  if (total <= 1) return "";
+  const d = Array.from({length:total},(_,i)=>
+    `<span class="dot ${i===0?"active":""}" onclick="goToSlide(this,${i})"></span>`
+  ).join("");
+  return `<div class="dots">${d}</div>`;
+}
+
+/* ═══ SLIDER MANUAL ═══════════════════════════════ */
+function moveSlide(btn, dir) {
+  const slider = btn.closest(".slider");
+  const slides = slider.querySelector(".slides");
+  const dots   = slider.querySelectorAll(".dot");
+  const total  = slides.children.length;
+  let idx = parseInt(slides.dataset.index||"0");
+  idx = (idx+dir+total)%total;
+  slides.style.transform = `translateX(-${idx*100}%)`;
+  slides.dataset.index = idx;
+  dots.forEach(d=>d.classList.remove("active"));
+  if(dots[idx]) dots[idx].classList.add("active");
+  smartLoad(slider, idx);
+}
+function goToSlide(dot, i) {
+  const slider = dot.closest(".slider");
+  const slides = slider.querySelector(".slides");
+  const dots   = slider.querySelectorAll(".dot");
+  slides.style.transform = `translateX(-${i*100}%)`;
+  slides.dataset.index = i;
+  dots.forEach(d=>d.classList.remove("active"));
+  dots[i].classList.add("active");
+  smartLoad(slider, i);
+}
+
+/* ═══ SMART LOAD ══════════════════════════════════ */
+function smartLoad(slider, cur) {
+  const imgs = slider.querySelectorAll(".media-img");
+  const tot = imgs.length;
+  [cur, (cur+1)%tot, (cur-1+tot)%tot].forEach(i => {
+    const img = imgs[i];
+    if (img&&img.dataset.src) { img.src=img.dataset.src; delete img.dataset.src; }
+  });
+}
+
+/* ═══ SWIPE ═══════════════════════════════════════ */
+function bindSliderSwipe() {
+  document.querySelectorAll(".slider").forEach(slider => {
+    smartLoad(slider, 0);
+    let sx=0, sy=0, moved=false;
+    slider.addEventListener("touchstart", e=>{ sx=e.touches[0].clientX; sy=e.touches[0].clientY; moved=false; },{passive:true});
+    slider.addEventListener("touchmove",  ()=>{ moved=true; },{passive:true});
+    slider.addEventListener("touchend",   e=>{
+      if (!moved) return;
+      const dx=e.changedTouches[0].clientX-sx, dy=Math.abs(e.changedTouches[0].clientY-sy);
+      if (Math.abs(dx)<30||dy>Math.abs(dx)) return;
+      const slides=slider.querySelector(".slides");
+      const dots=slider.querySelectorAll(".dot");
+      const tot=slides.children.length;
+      let idx=parseInt(slides.dataset.index||"0");
+      idx=dx<0?(idx+1)%tot:(idx-1+tot)%tot;
+      slides.style.transform=`translateX(-${idx*100}%)`;
+      slides.dataset.index=idx;
+      dots.forEach(d=>d.classList.remove("active"));
+      if(dots[idx]) dots[idx].classList.add("active");
+      smartLoad(slider, idx);
+    },{passive:true});
+  });
+}
+
+/* ═══ REVEAL ON SCROLL ════════════════════════════ */
+function revealCards() {
+  document.querySelectorAll(".card").forEach(c=>{
+    if (c.getBoundingClientRect().top < window.innerHeight-40) c.classList.add("show");
+  });
+}
+window.addEventListener("scroll", revealCards);
+
+/* ═══ MEDIA CLICKS → VIEWER ══════════════════════ */
+function bindMediaClicks() {
+  document.querySelectorAll(".card").forEach(card=>{
+    card.querySelectorAll(".media-img").forEach((el,idx)=>{
+      el.addEventListener("click",()=>{
+        /* Usar data-full (4K) para el viewer; fallback al thumb si no existe */
+        const fullSrcs = Array.from(card.querySelectorAll(".media-img"))
+          .map(i => i.dataset.full || i.src || i.dataset.src);
+        const clickedFull = el.dataset.full || el.src || el.dataset.src;
+        openImage(clickedFull, fullSrcs, idx);
+      });
+    });
+    card.querySelectorAll(".video-thumb-slide").forEach(slide=>{
+      slide.addEventListener("click",()=>openVideo(slide.dataset.video));
+    });
+  });
+}
+
+/* ═══ TOGGLE DESC ═════════════════════════════════ */
+function toggleDesc(id, btn) {
+  const el=document.getElementById(id);
+  const exp=el.classList.toggle("expanded");
+  btn.innerHTML=exp?'Ver menos <i class="fas fa-chevron-up" style="font-size:9px;margin-left:2px"></i>':'Ver más <i class="fas fa-chevron-down" style="font-size:9px;margin-left:2px"></i>';
+}
+
+/* ═══ VIEWER ══════════════════════════════════════ */
+(function initViewer(){
+  const viewer=document.getElementById("viewer");
+  const viewerImg=document.getElementById("viewerImg");
+  const viewerVid=document.getElementById("viewerVideo");
+  const controls=document.getElementById("videoControls");
+  const closeBtn=document.getElementById("viewerClose");
+  const counter=document.getElementById("viewerCounter");
+  const btnPrev=document.getElementById("viewerPrev");
+  const btnNext=document.getElementById("viewerNext");
+  let gallery=[],galleryIdx=0;
+  let scale=1,tx=0,ty=0,isDragging=false,dragStartX=0,dragStartY=0;
+  let pinchDist0=null,scale0=1,lastTap=0;
+
+  function applyTransform(anim){
+    viewerImg.style.transition=anim?"transform 0.25s ease":"none";
+    viewerImg.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;
+  }
+  function resetZoom(anim){ scale=1;tx=0;ty=0;applyTransform(anim); }
+  function clamp(){
+    const r=viewerImg.getBoundingClientRect();
+    const mx=Math.max(0,(r.width-window.innerWidth)/2);
+    const my=Math.max(0,(r.height-window.innerHeight)/2);
+    tx=Math.min(mx,Math.max(-mx,tx)); ty=Math.min(my,Math.max(-my,ty));
+  }
+  function updateNavArrows(){
+    const show = gallery.length > 1;
+    btnPrev.classList.toggle("hidden", !show);
+    btnNext.classList.toggle("hidden", !show);
+  }
+
+  window.openImage=function(src,imgs,idx){
+    gallery=imgs||[src]; galleryIdx=idx||0;
+    showImg(galleryIdx);
+    viewerVid.style.display="none"; controls.style.display="none";
+    viewer.classList.add("active"); document.body.style.overflow="hidden";
+    updateNavArrows();
+    /* Precargar todas las imágenes de la galería en background */
+    gallery.forEach(s => { if (!isVideo(s)) preloadViewerImg(s); });
+  };
+  /* Preload cache para el viewer */
+  const _preloadCache = {};
+  function preloadViewerImg(src){
+    if (!src || _preloadCache[src]) return;
+    const img = new Image();
+    img.fetchPriority = "high";
+    img.decoding = "async";
+    img.src = src;
+    _preloadCache[src] = img;
+  }
+  function showImg(idx){
+    galleryIdx=idx;
+    viewerImg.src=gallery[idx]; viewerImg.style.display="block";
+    resetZoom(false);
+    counter.textContent=gallery.length>1?`${idx+1} / ${gallery.length}`:"";
+    /* Precargar imágenes vecinas inmediatamente */
+    if (gallery.length > 1) {
+      preloadViewerImg(gallery[(idx+1) % gallery.length]);
+      preloadViewerImg(gallery[(idx-1+gallery.length) % gallery.length]);
+    }
+  }
+  window.openVideo=function(src){
+    gallery=[]; counter.textContent="";
+    viewerImg.style.display="none";
+    viewerVid.src=src; viewerVid.style.display="block"; controls.style.display="flex";
+    vcPlayPause.innerHTML='<i class="fas fa-pause"></i>'; viewerVid.play();
+    viewer.classList.add("active"); document.body.style.overflow="hidden";
+    btnPrev.classList.add("hidden"); btnNext.classList.add("hidden");
+  };
+  function closeViewer(){
+    viewer.classList.remove("active"); viewerVid.pause(); viewerVid.src="";
+    viewerImg.src=""; gallery=[]; document.body.style.overflow="";
+  }
+  function nav(d){ if(!gallery.length) return; showImg((galleryIdx+d+gallery.length)%gallery.length); }
+
+  closeBtn.addEventListener("click",closeViewer);
+  btnPrev.addEventListener("click", e=>{ e.stopPropagation(); nav(-1); });
+  btnNext.addEventListener("click", e=>{ e.stopPropagation(); nav(1); });
+  viewer.addEventListener("click",e=>{ if(e.target===viewer) closeViewer(); });
+  document.addEventListener("keydown",e=>{
+    if(!viewer.classList.contains("active")) return;
+    if(e.key==="Escape") closeViewer();
+    if(e.key==="ArrowRight") nav(1);
+    if(e.key==="ArrowLeft")  nav(-1);
+  });
+
+  viewer.addEventListener("wheel",e=>{
+    if(viewerImg.style.display==="none") return;
+    e.preventDefault(); scale=Math.min(5,Math.max(1,scale-e.deltaY*0.002));
+    if(scale===1){tx=0;ty=0;} applyTransform(false);
+  },{passive:false});
+
+  viewerImg.addEventListener("mousedown",e=>{
+    if(scale<=1) return; isDragging=true; dragStartX=e.clientX-tx; dragStartY=e.clientY-ty;
+    viewerImg.style.cursor="grabbing"; e.preventDefault();
+  });
+  window.addEventListener("mouseup",()=>{ isDragging=false; viewerImg.style.cursor="grab"; });
+  window.addEventListener("mousemove",e=>{
+    if(!isDragging) return; tx=e.clientX-dragStartX; ty=e.clientY-dragStartY; clamp(); applyTransform(false);
+  });
+
+  let touchX0=0,touchY0=0,touchMoved=false;
+  viewerImg.addEventListener("touchstart",e=>{
+    touchMoved=false;
+    if(e.touches.length===2){ pinchDist0=pd(e.touches); scale0=scale; }
+    else{ touchX0=e.touches[0].clientX; touchY0=e.touches[0].clientY; dragStartX=e.touches[0].clientX-tx; dragStartY=e.touches[0].clientY-ty; isDragging=true; }
+  },{passive:true});
+  viewerImg.addEventListener("touchmove",e=>{
+    touchMoved=true; e.preventDefault();
+    if(e.touches.length===2&&pinchDist0){ scale=Math.min(5,Math.max(1,scale0*(pd(e.touches)/pinchDist0))); if(scale===1){tx=0;ty=0;} applyTransform(false); }
+    else if(e.touches.length===1&&isDragging&&scale>1){ tx=e.touches[0].clientX-dragStartX; ty=e.touches[0].clientY-dragStartY; clamp(); applyTransform(false); }
+  },{passive:false});
+  viewerImg.addEventListener("touchend",e=>{
+    isDragging=false; pinchDist0=null;
+    if(!touchMoved&&e.changedTouches.length===1){ const now=Date.now(); if(now-lastTap<300){ scale===1?(scale=2.5,applyTransform(true)):resetZoom(true); } lastTap=now; return; }
+    if(scale>1||e.changedTouches.length!==1) return;
+    const dx=e.changedTouches[0].clientX-touchX0, dy=e.changedTouches[0].clientY-touchY0;
+    if(Math.abs(dy)>Math.abs(dx)&&Math.abs(dy)>60) closeViewer();
+    else if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40) nav(dx<0?1:-1);
+  },{passive:true});
+  function pd(t){ const dx=t[0].clientX-t[1].clientX,dy=t[0].clientY-t[1].clientY; return Math.sqrt(dx*dx+dy*dy); }
+
+  const vcPlayPause=document.getElementById("vcPlayPause");
+  const vcProgress=document.getElementById("vcProgress");
+  const vcTime=document.getElementById("vcTime");
+  const vcMute=document.getElementById("vcMute");
+  const vcFullscreen=document.getElementById("vcFullscreen");
+  vcPlayPause.addEventListener("click",()=>{ if(viewerVid.paused){viewerVid.play();vcPlayPause.innerHTML='<i class="fas fa-pause"></i>';}else{viewerVid.pause();vcPlayPause.innerHTML='<i class="fas fa-play"></i>';} });
+  viewerVid.addEventListener("timeupdate",()=>{ if(!viewerVid.duration)return; vcProgress.max=viewerVid.duration; vcProgress.value=viewerVid.currentTime; vcTime.textContent=fmtTime(viewerVid.currentTime)+" / "+fmtTime(viewerVid.duration); });
+  vcProgress.addEventListener("input",()=>{ viewerVid.currentTime=vcProgress.value; });
+  vcMute.addEventListener("click",()=>{ viewerVid.muted=!viewerVid.muted; vcMute.innerHTML=viewerVid.muted?'<i class="fas fa-volume-mute"></i>':'<i class="fas fa-volume-up"></i>'; });
+  vcFullscreen.addEventListener("click",()=>{ if(viewerVid.requestFullscreen) viewerVid.requestFullscreen(); else if(viewerVid.webkitEnterFullscreen) viewerVid.webkitEnterFullscreen(); });
+  viewerVid.addEventListener("ended",()=>{ vcPlayPause.innerHTML='<i class="fas fa-play"></i>'; });
+})();
+
+/* ═══ BOOT ════════════════════════════════════════ */
+loadProperties();
+</script>
+</body>
+</html>
